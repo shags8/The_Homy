@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.thehomy.R
 
-class OnBoarding_Adapter(private val onboardingTexts: List<String>,private val onboardingImages: List<ImageView>):
+class OnBoarding_Adapter(private val onboardingTexts: List<String>, private val onboardingImages: List<Int>):
     RecyclerView.Adapter<OnBoarding_Adapter.OnboardingViewHolder>()
     {
 
@@ -20,11 +20,13 @@ class OnBoarding_Adapter(private val onboardingTexts: List<String>,private val o
 
         override fun onBindViewHolder(holder: OnboardingViewHolder, position: Int) {
             holder.textView.text = onboardingTexts[position]
+            holder.imageView.setImageResource(onboardingImages[position])
         }
 
         override fun getItemCount(): Int = onboardingTexts.size
 
         class OnboardingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val textView: TextView = itemView.findViewById(R.id.texts)
+            val imageView: ImageView = itemView.findViewById(R.id.image)
         }
     }

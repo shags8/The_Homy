@@ -9,6 +9,8 @@
         android:id="@+id/image"
         android:layout_width="350dp"
         android:layout_height="350dp"
+        android:cropToPadding="true"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,6 +24,7 @@
         android:gravity="center"
         android:padding="16dp"
         android:textSize="24sp"
+        android:textColor="#E23744"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
