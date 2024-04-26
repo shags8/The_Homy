@@ -92,6 +92,7 @@
                         android:layout_marginTop="10dp"
                         android:includeFontPadding="false"
                         android:fontFamily="@font/poppins_regular"
+                        android:layout_marginStart="3dp"
                         app:layout_constraintStart_toEndOf="@id/I1"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -128,6 +129,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="35dp"
                                 android:text="@string/morning"
+                                android:drawablePadding="4dp"
+                                style="@style/Widget.AppCompat.Button.Borderless"
+                                android:textAllCaps="false"
                                 android:textColor="@drawable/selector_text"
                                 android:fontFamily="@font/poppins_regular"
                                 android:background="@drawable/selector"/>
@@ -136,6 +140,7 @@
                                 android:id="@+id/MorningGroup"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:orientation="vertical"
                                 android:visibility="gone">
 
@@ -175,6 +180,8 @@
                                 android:id="@+id/Noon"
                                 android:layout_width="match_parent"
                                 android:layout_height="35dp"
+                                android:textAllCaps="false"
+                                style="@style/Widget.AppCompat.Button.Borderless"
                                 android:textColor="@drawable/selector_text"
                                 android:fontFamily="@font/poppins_regular"
                                 android:text="@string/noon"
@@ -184,6 +191,7 @@
                                 android:id="@+id/NoonGroup"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:orientation="vertical"
                                 android:visibility="gone">
 
@@ -223,6 +231,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="35dp"
                                 android:text="@string/evening"
+                                style="@style/Widget.AppCompat.Button.Borderless"
+                                android:textAllCaps="false"
                                 android:textColor="@drawable/selector_text"
                                 android:fontFamily="@font/poppins_regular"
                                 android:background="@drawable/selector"/>
@@ -231,6 +241,7 @@
                                 android:id="@+id/EveningGroup"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
                                 android:orientation="vertical"
                                 android:visibility="gone">
 
@@ -268,9 +279,12 @@
 
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/black"
                 android:layout_marginTop="5dp"
                 app:cardElevation="20dp"
                 app:cardCornerRadius="5dp"
@@ -278,8 +292,7 @@
                 app:layout_constraintTop_toBottomOf="@id/card1"
                 app:layout_constraintStart_toStartOf="@+id/card1"
                 app:layout_constraintEnd_toEndOf="@+id/card1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="30dp">
+                >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -310,11 +323,64 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:contentDescription="TODO" />
+                        android:contentDescription="@null" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/black"
+                android:layout_marginTop="5dp"
+                app:cardElevation="20dp"
+                app:cardCornerRadius="5dp"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintTop_toBottomOf="@id/card2"
+                app:layout_constraintStart_toStartOf="@+id/card2"
+                app:layout_constraintEnd_toEndOf="@+id/card2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="30dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/planTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:textSize="11sp"
+                        android:focusable="true"
+                        android:fontFamily="@font/poppins_regular"
+                        android:padding="16dp"
+                        android:text="@string/please_select_plan"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageButton
+                        android:id="@+id/planSelector"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/arrow___left_2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@null" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
