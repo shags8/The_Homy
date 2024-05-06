@@ -20,7 +20,6 @@
     <string name="noon">Noon</string>
     <string name="evening">Evening</string>
     <string name="please_select_start_date">Please Select Start Date</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
@@ -30,4 +29,17 @@
     <string name="half_yearly">Half Yearly</string>
     <string name="yearly">Yearly</string>
     <string name="daily">Daily</string>
+    <string name="no_of_person">No. of Person</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="amount_to_be_paid">Amount to be paid</string>
+    <string name="show_details">show details</string>
+    <string name="Continue">Continue</string>
+    <string name="profile">Profile</string>
+    <string name="calendar">Calendar</string>
+    <string name="share">Share</string>
+    <string name="rate_and_review">Rate and Review</string>
+    <string name="help_center">Help Center</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="about_us">About Us</string>
 </resources>

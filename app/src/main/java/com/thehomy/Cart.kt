@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -72,6 +73,20 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
         }
         binding.planSelector.setOnClickListener {
             showPlanPickerBottomSheet()
+        }
+        binding.increase.setOnClickListener {
+            val number = binding.numberOfPersonNumber.text
+            if (number.toString().toInt() >= 10) {
+                return@setOnClickListener
+            }
+            binding.numberOfPersonNumber.text = number.toString().toInt().plus(1).toString()
+        }
+        binding.decrease.setOnClickListener {
+            val number = binding.numberOfPersonNumber.text
+            if (number.toString().toInt() <= 4) {
+                return@setOnClickListener
+            }
+            binding.numberOfPersonNumber.text = number.toString().toInt().minus(1).toString()
         }
     }
 

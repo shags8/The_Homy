@@ -17,7 +17,6 @@ class OnBoarding_Adapter(private val onboardingTexts: List<String>, private val 
                 .inflate(R.layout.item_refactor, parent, false)
             return OnboardingViewHolder(view)
         }
-
         override fun onBindViewHolder(holder: OnboardingViewHolder, position: Int) {
             holder.textView.text = onboardingTexts[position]
             holder.imageView.setImageResource(onboardingImages[position])
