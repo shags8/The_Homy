@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -15,7 +16,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
-class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedListener {
+class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedListener, PlanPickerBottomSheetFragment.PlanSelectedListener{
 
     private lateinit var binding : ActivityCartBinding
     private var selectedButtonCount = 1
@@ -24,6 +25,7 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.toolbar.textView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0)
         binding.toolbar.textView.text = "CART"
 
@@ -69,6 +71,23 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
         binding.dateSelector.setOnClickListener{
             showDatePickerBottomSheet()
         }
+        binding.planSelector.setOnClickListener {
+            showPlanPickerBottomSheet()
+        }
+        binding.increase.setOnClickListener {
+            val number = binding.numberOfPersonNumber.text
+            if (number.toString().toInt() >= 10) {
+                return@setOnClickListener
+            }
+            binding.numberOfPersonNumber.text = number.toString().toInt().plus(1).toString()
+        }
+        binding.decrease.setOnClickListener {
+            val number = binding.numberOfPersonNumber.text
+            if (number.toString().toInt() <= 4) {
+                return@setOnClickListener
+            }
+            binding.numberOfPersonNumber.text = number.toString().toInt().minus(1).toString()
+        }
     }
 
     private fun toggleButtonSelection(button: Button) {
@@ -87,14 +106,26 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
         }
 
     }
-private fun showDatePickerBottomSheet() {
+
+   private fun showPlanPickerBottomSheet()
+   {
+       val bottomSheetFragment = PlanPickerBottomSheetFragment()
+       bottomSheetFragment.setPlanSelectedListener(this)
+       bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+   }
+   private fun showDatePickerBottomSheet()
+   {
     val bottomSheetFragment = DatePickerBottomSheetFragment()
     bottomSheetFragment.setDateSelectedListener(this)
     bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
-}
+   }
 
     override fun onDateSelected(date: String) {
         binding.dateTextView.text = date
+    }
+
+    override fun onPlanSelected(plan: String) {
+        binding.planTextView.text = plan
     }
 
 }
