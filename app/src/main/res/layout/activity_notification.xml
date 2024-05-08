@@ -10,9 +10,7 @@
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-33dp" />
+        layout="@layout/tool_bar"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
