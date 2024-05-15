@@ -41,7 +41,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:drawableStartCompat="@drawable/kk_icon" />
+                app:drawableStartCompat="@drawable/dish_icon" />
 
             <View
                 android:layout_width="0dp"

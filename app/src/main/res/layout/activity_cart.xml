@@ -41,8 +41,7 @@
                 app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:drawableStartCompat="@drawable/kk_icon" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/line"

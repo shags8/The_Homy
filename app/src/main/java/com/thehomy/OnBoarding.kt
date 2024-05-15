@@ -17,7 +17,6 @@ class OnBoarding : AppCompatActivity() {
     private val onboardingImages = listOf(R.drawable.onboard_cook,R.drawable.onboard_cleaner,R.drawable.onboard_toilet)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         binding = ActivityOnBoardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Animation()

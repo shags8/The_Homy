@@ -4,5 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="screen_background">#FFF8F8</color>
     <color name="red">#E23744</color>
+    <color name="red_light">#E2606A</color>
     <color name="gray">#959292</color>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="registration_text">
+    <style name="Heading_text">
         <item name="android:textSize">32sp</item>
         <item name="android:fontFamily" >@font/poppins_semibold</item>
         <item name="android:textColor">@color/black</item>
@@ -13,7 +13,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:maxLines">1</item>
         <item name="android:textColorHint">#99000000</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Signup_btn">
@@ -73,6 +73,10 @@
         <item name="android:textSize">17sp</item>
         <item name="android:cropToPadding">true</item>
         <item name="android:scaleType">center</item>
+    </style>
+    <style name="MyCustomTabTextAppearance2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textSize">17sp</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="starting">

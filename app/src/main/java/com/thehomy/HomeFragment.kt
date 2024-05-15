@@ -25,8 +25,8 @@ class HomeFragment : Fragment() {
         serviceModel.add(ServiceModel("Kitchen King","Cooking",R.drawable.kk_icon))
         serviceModel.add(ServiceModel("Dust Guard","House Cleaner",R.drawable.kk_icon))
 
-        binding.serviceRec.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        binding.serviceRec.adapter = Service_Adapter(serviceModel)
+//        binding.serviceRec.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+//        binding.serviceRec.adapter = Service_Adapter(serviceModel)
         return binding.root
     }
 

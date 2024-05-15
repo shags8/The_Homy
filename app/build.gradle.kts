@@ -50,7 +50,11 @@ dependencies {
     implementation(libs.firebase.database)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.config)
+    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation ("com.github.mukeshsolanki.android-otpview-pinview:otpview:3.1.0")
 }

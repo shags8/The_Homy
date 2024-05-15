@@ -1,0 +1,151 @@
+{
+  "project_info": {
+    "project_number": "265885643919",
+    "firebase_url": "https://thehomy-d4fb8-default-rtdb.firebaseio.com",
+    "project_id": "thehomy-d4fb8",
+    "storage_bucket": "thehomy-d4fb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265885643919:android:af1068f7004937ab166cfa",
+        "android_client_info": {
+          "package_name": "com.example.thehomypartner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265885643919-8l3cpthklp50grre52bnq3hf1kk6abfj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thehomypartner",
+            "certificate_hash": "e8cf9d73dbc2ead04d6d24f4cccdf815976c91cc"
+          }
+        },
+        {
+          "client_id": "265885643919-q9rc0ajrc5bqteg3bq7k0cerg81aliqu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.thehomypartner",
+            "certificate_hash": "ad3e42b19c2ecf8d42db972c800cb12243ee128a"
+          }
+        },
+        {
+          "client_id": "265885643919-v0pu3pofhb6l3m33gc0htk9crlug3e48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwyji4W8VFyyOwNmFTzddfr3Ws6TS7aM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265885643919-v0pu3pofhb6l3m33gc0htk9crlug3e48.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265885643919-0mtl2mu4cp11s5n31krt4g28i33j3bto.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.theHomy"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265885643919:android:32bf1e9a999cb835166cfa",
+        "android_client_info": {
+          "package_name": "com.thehomy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265885643919-v0pu3pofhb6l3m33gc0htk9crlug3e48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwyji4W8VFyyOwNmFTzddfr3Ws6TS7aM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265885643919-v0pu3pofhb6l3m33gc0htk9crlug3e48.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265885643919-0mtl2mu4cp11s5n31krt4g28i33j3bto.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.theHomy"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265885643919:android:61b9fa5cad73d062166cfa",
+        "android_client_info": {
+          "package_name": "com.thehomy1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265885643919-94ll6a0vi9suschbfptro3ro2ho2jcb5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thehomy1",
+            "certificate_hash": "ad3e42b19c2ecf8d42db972c800cb12243ee128a"
+          }
+        },
+        {
+          "client_id": "265885643919-rhdgf6cievsvn7u7cj6ahbddp5lfm29p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thehomy1",
+            "certificate_hash": "e8cf9d73dbc2ead04d6d24f4cccdf815976c91cc"
+          }
+        },
+        {
+          "client_id": "265885643919-v0pu3pofhb6l3m33gc0htk9crlug3e48.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwyji4W8VFyyOwNmFTzddfr3Ws6TS7aM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265885643919-v0pu3pofhb6l3m33gc0htk9crlug3e48.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265885643919-0mtl2mu4cp11s5n31krt4g28i33j3bto.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.theHomy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
