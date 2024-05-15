@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.thehomy.HomeFragment"
+        android:name="com.thehomy.Fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
     </fragment>
     <fragment
         android:id="@+id/recentFragment"
-        android:name="com.thehomy.RecentPlanFragment"
+        android:name="com.thehomy.Fragment.RecentPlanFragment"
         android:label="fragment_recent_plan"
         tools:layout="@layout/fragment_recent_plan" >
     </fragment>
@@ -24,7 +24,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/recipesFragment"
-        android:name="com.thehomy.RecipesFragment"
+        android:name="com.thehomy.Fragment.RecipesFragment"
         android:label="fragment_recipes"
         tools:layout="@layout/fragment_recipes" >
     </fragment>

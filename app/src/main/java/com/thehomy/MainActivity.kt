@@ -17,26 +17,14 @@ import com.thehomy.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val serviceModel= mutableListOf<ServiceModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding =ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var navController =findNavController(R.id.fragements)
-        var bottomNavigationView =findViewById<BottomNavigationView>(R.id.bottomNavBar)
+        var navController = findNavController(R.id.fragements)
+        var bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavBar)
         bottomNavigationView.setupWithNavController(navController)
-
-//        serviceModel.add(ServiceModel("Kitchen King","Cooking",R.drawable.kk_icon))
-//        serviceModel.add(ServiceModel("Kitchen King","Cooking",R.drawable.kk_icon))
-
-//        binding.serviceRec.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-//        binding.serviceRec.adapter = Service_Adapter(this,serviceModel)
-//
-//        binding.mainToolBar.notification.setOnClickListener{
-//            val intent = Intent(this,notification::class.java)
-//            startActivity(intent)
-//        }
 
 
     }
