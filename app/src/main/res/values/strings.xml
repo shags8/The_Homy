@@ -44,4 +44,8 @@
     <string name="help_center">Help Center</string>
     <string name="delete_account">Delete Account</string>
     <string name="about_us">About Us</string>
+    <string name="starting_1099">Starting @ 1099</string>
+    <string name="benefits">Benefits:</string>
+    <string name="verification">Verification</string>
+    <string name="please_enter_the_6_digit_code_sent_on">Please enter the 6-digit code sent on</string>
 </resources>
