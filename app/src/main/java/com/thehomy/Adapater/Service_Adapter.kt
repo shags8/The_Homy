@@ -1,10 +1,11 @@
 package com.thehomy.Adapater
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.thehomy.Models.ServiceModel
+import com.thehomy.models.ServiceModel
+import com.thehomy.PlanDes
 import com.thehomy.databinding.ServiceItemBinding
 
 class Service_Adapter(private val items:List<ServiceModel>):RecyclerView.Adapter<Service_Adapter.ServiceViewModel>() {
@@ -32,5 +33,10 @@ class Service_Adapter(private val items:List<ServiceModel>):RecyclerView.Adapter
     override fun onBindViewHolder(holder: ServiceViewModel, position: Int) {
         val item = items[position]
         holder.bind(item)
+        holder.itemView.setOnClickListener{
+            val intent = Intent(it.context,PlanDes::class.java)
+            intent.putExtra("pos",position+1)
+            it.context.startActivity(intent)
+        }
     }
 }

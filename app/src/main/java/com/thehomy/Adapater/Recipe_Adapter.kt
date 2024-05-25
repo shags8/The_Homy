@@ -3,7 +3,7 @@ package com.thehomy.Adapater
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.thehomy.Models.RecipeModel
+import com.thehomy.models.RecipeModel
 import com.thehomy.databinding.RecipeItemBinding
 
 class Recipe_Adapter(private val items: List<RecipeModel>): RecyclerView.Adapter<Recipe_Adapter.RecipeViewHolder>() {

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.thehomy.databinding.ActivityRegistrationBinding
-import com.thehomy.Models.User
+import com.thehomy.models.User
 
 class Registration : AppCompatActivity() {
 

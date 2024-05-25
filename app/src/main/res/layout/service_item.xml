@@ -35,11 +35,13 @@
                 android:id="@+id/Service_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/red"
                 android:text="Kitchen King" />
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/service_func"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/red_light"
                 android:textSize="10sp"
                 android:text="cooking" />
         </LinearLayout>
