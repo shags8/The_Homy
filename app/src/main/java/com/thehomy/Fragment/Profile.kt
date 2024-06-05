@@ -1,9 +1,8 @@
-package com.thehomy
+package com.thehomy.Fragment
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +11,9 @@ import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
+import com.thehomy.AboutUs
+import com.thehomy.Calendar
+import com.thehomy.HelpCenter
 import com.thehomy.databinding.FragmentProfileBinding
 
 class Profile : Fragment() {
@@ -37,18 +39,18 @@ class Profile : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.AboutUs.setOnClickListener {
-            val intent = Intent(activity,AboutUs::class.java)
+            val intent = Intent(activity, AboutUs::class.java)
             startActivity(intent)
         }
 
         remote()
 
         binding.HelpCenter.setOnClickListener {
-            val intent = Intent(requireActivity(),HelpCenter::class.java)
+            val intent = Intent(requireActivity(), HelpCenter::class.java)
             startActivity(intent)
         }
         binding.Calendar.setOnClickListener {
-            val intent = Intent(requireActivity(),Calendar::class.java)
+            val intent = Intent(requireActivity(), Calendar::class.java)
             startActivity(intent)
         }
         binding.Share.setOnClickListener {
