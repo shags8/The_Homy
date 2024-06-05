@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.googleGmsGoogleServices)
+    id("kotlin-kapt")
 }
 
 android {
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures{
         viewBinding=true
+        dataBinding=true
     }
 
 }
@@ -56,5 +58,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation ("com.github.mukeshsolanki.android-otpview-pinview:otpview:3.1.0")
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.14.2")
+    implementation ("jp.wasabeef:glide-transformations:4.3.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
 }

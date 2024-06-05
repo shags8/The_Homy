@@ -1,106 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Description">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.widget.NestedScrollView
+    <data>
+
+        <variable
+            name="description"
+            type="com.thehomy.models.ServiceDetailsModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".Description">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/startingPrice"
-                style="@style/starting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/starting_1099"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/planDes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet consectetur. Urna est ut arcu tempor est."
-                app:layout_constraintEnd_toEndOf="@id/startingPrice"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@id/startingPrice"
-                app:layout_constraintTop_toBottomOf="@id/startingPrice" />
-
-            <TextView
-                android:id="@+id/Benefits"
-                style="@style/starting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:text="@string/benefits"
-                app:layout_constraintEnd_toEndOf="@id/planDes"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toStartOf="@id/planDes"
-                app:layout_constraintTop_toBottomOf="@id/planDes" />
-
-            <GridLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:columnCount="2"
-                android:rowCount="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Benefits">
-
-                <include
-                    layout="@layout/benefits_card"
+                <TextView
+                    android:id="@+id/startingPrice"
+                    style="@style/starting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    />
+                    android:text="@{description.price}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <include
-                    layout="@layout/benefits_card"
+                <TextView
+                    android:id="@+id/planDes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1" />
+                    android:text="@{description.desc}"
+                    app:layout_constraintEnd_toEndOf="@id/startingPrice"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/startingPrice"
+                    app:layout_constraintTop_toBottomOf="@id/startingPrice" />
 
-                <include
-                    layout="@layout/benefits_card"
+                <TextView
+                    android:id="@+id/BenefitsHeading"
+                    style="@style/starting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    />
+                    android:layout_marginTop="3dp"
+                    android:text="@string/benefits"
+                    app:layout_constraintEnd_toEndOf="@id/planDes"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/planDes"
+                    app:layout_constraintTop_toBottomOf="@id/planDes" />
 
-                <include
-                    layout="@layout/benefits_card"
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/Benefits"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1" />
+                    app:spanCount="2"
+                    tools:itemCount="4"
+                    android:paddingBottom="30dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/benefits_card"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/BenefitsHeading">
 
-            </GridLayout>
-            
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.core.widget.NestedScrollView>
+                </androidx.recyclerview.widget.RecyclerView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

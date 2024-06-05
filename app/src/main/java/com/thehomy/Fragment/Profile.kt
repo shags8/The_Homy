@@ -1,8 +1,9 @@
-package com.thehomy.Fragment
+package com.thehomy
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +40,7 @@ class Profile : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.AboutUs.setOnClickListener {
-            val intent = Intent(activity, AboutUs::class.java)
+            val intent = Intent(activity,AboutUs::class.java)
             startActivity(intent)
         }
 
@@ -50,8 +51,11 @@ class Profile : Fragment() {
             startActivity(intent)
         }
         binding.Calendar.setOnClickListener {
-            val intent = Intent(requireActivity(), Calendar::class.java)
-            startActivity(intent)
+            Toast.makeText(
+                activity,
+                "This Service is not available right now",
+                Toast.LENGTH_SHORT
+            ).show()
         }
         binding.Share.setOnClickListener {
             val shareIntent = Intent().apply {

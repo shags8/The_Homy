@@ -5,55 +5,63 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.thehomy.Adapater.PlansAdapter
+import com.thehomy.Repository.PlanDes_Repo
+import com.thehomy.ViewModels.ServiceDetails_VM
+import com.thehomy.ViewModels.ServiceDetails_VMFactory
+import com.thehomy.ViewModels.SharedViewModel
+import com.thehomy.databinding.FragmentDescriptionBinding
+import com.thehomy.databinding.FragmentPlansBinding
+import com.thehomy.models.PlanModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Plans.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Plans : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentPlansBinding
+    private lateinit var sharedViewModel : SharedViewModel
+    private lateinit var viewModel: ServiceDetails_VM
+    private lateinit var planList: ArrayList<PlanModel>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plans, container, false)
-    }
+        binding= FragmentPlansBinding.inflate(inflater,container,false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Plans.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Plans().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        //Setting Up Shared View Model to get the path
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        sharedViewModel.intValue.observe(viewLifecycleOwner, Observer { value ->
+            viewModel.getDetails(value)
+        })
+
+        //Setting UP VM
+        val repository = PlanDes_Repo()
+        viewModel = ViewModelProvider(requireActivity(), ServiceDetails_VMFactory(repository))[ServiceDetails_VM::class.java]
+
+
+        //Setting Up Adapter
+        planList = arrayListOf()
+        val planAdapter = PlansAdapter(planList)
+        binding.plansList.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
+        binding.plansList.adapter = planAdapter
+
+        //Setting Up Observer
+        viewModel.planLiveData.observe(viewLifecycleOwner, Observer {
+            planList.clear()
+            if (it != null) {
+                planList.addAll(it)
             }
+            planAdapter.notifyDataSetChanged()
+        })
+
+
+
+
+
+        return binding.root
+
     }
 }

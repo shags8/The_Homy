@@ -5,55 +5,66 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.thehomy.Adapater.Benefits_Adapter
+import com.thehomy.Repository.PlanDes_Repo
+import com.thehomy.ViewModels.ServiceDetails_VM
+import com.thehomy.ViewModels.ServiceDetails_VMFactory
+import com.thehomy.ViewModels.SharedViewModel
+import com.thehomy.databinding.FragmentDescriptionBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Description.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Description : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentDescriptionBinding
+    private lateinit var sharedViewModel : SharedViewModel
+    private lateinit var viewModel: ServiceDetails_VM
+
+    private lateinit var itemList: ArrayList<String>
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_description, container, false)
-    }
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_description,container,false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Description.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Description().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        //Setting Up Shared View Model to get the path
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        sharedViewModel.intValue.observe(viewLifecycleOwner, Observer { value ->
+           viewModel.getDetails(value)
+        })
+
+        //Setting UP VM
+        val repository = PlanDes_Repo()
+        viewModel = ViewModelProvider(requireActivity(), ServiceDetails_VMFactory(repository))[ServiceDetails_VM::class.java]
+
+        //Setting Up Adapter
+        itemList = arrayListOf()
+        val adapter = Benefits_Adapter(itemList)
+        binding.Benefits.layoutManager = GridLayoutManager(activity,2)
+        binding.Benefits.adapter = adapter
+
+        //Observing Data
+        viewModel.ServiceLiveData.observe(viewLifecycleOwner, Observer {
+            binding.description =it
+            it?.Benefits.let {
+                itemList.clear()
+                if (it != null) {
+                    for (items in it) {
+
+                        itemList.add(items)
+                    }
                 }
+                adapter.notifyDataSetChanged()
             }
+        }
+        )
+
+
+        return binding.root
     }
 }

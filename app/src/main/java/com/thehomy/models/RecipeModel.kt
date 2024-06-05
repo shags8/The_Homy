@@ -1,4 +1,4 @@
-package com.thehomy.Models
+package com.thehomy.models
 
 class RecipeModel(
 //    var id: int

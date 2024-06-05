@@ -97,6 +97,9 @@
         <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
 
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/black</item>
+    </style>
 
 
 </resources>

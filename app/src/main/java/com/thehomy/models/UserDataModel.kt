@@ -1,4 +1,4 @@
-package com.thehomy.Models
+package com.thehomy.models
 
 data class User(
     val userName: String,

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
@@ -20,21 +21,39 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
 
     private lateinit var binding : ActivityCartBinding
     private var selectedButtonCount = 1
+    private var isDateSelected = false
+    private var isPlanSelected = false
+    private var selectedPlan = ""   // number of times Monthly , Weekly Etc
+    private var selectedDate = ""
+    private var numberOfPeople = 4
+    private var selectedPackage = ""  // package name
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        selectedPackage = intent.getStringExtra("planName") ?: ""
+        setupUI()
+        setupListeners()
+    }
+
+
+    private fun setupUI(){
         binding.toolbar.textView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0)
         binding.toolbar.textView.text = "CART"
+        binding.planTextView.text = "Monthly"
+        selectedPlan = "Monthly"
 
+        updatePrice()
         binding.Morning.isSelected = true
         if (binding.Morning.isSelected) {
             binding.MorningGroup.visibility = View.VISIBLE
             binding.MorningGroup.check(R.id.m_slot1)
         }
+    }
 
+    private fun setupListeners(){
         binding.Morning.setOnClickListener {
             toggleButtonSelection(binding.Morning)
             if (binding.Morning.isSelected) {
@@ -80,6 +99,8 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
                 return@setOnClickListener
             }
             binding.numberOfPersonNumber.text = number.toString().toInt().plus(1).toString()
+            numberOfPeople=binding.numberOfPersonNumber.text.toString().toInt()
+            updatePrice()
         }
         binding.decrease.setOnClickListener {
             val number = binding.numberOfPersonNumber.text
@@ -87,8 +108,19 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
                 return@setOnClickListener
             }
             binding.numberOfPersonNumber.text = number.toString().toInt().minus(1).toString()
+            numberOfPeople=binding.numberOfPersonNumber.text.toString().toInt()
+            updatePrice()
+        }
+        binding.Continue.setOnClickListener {
+            if (isDateSelected && isPlanSelected) {
+                // Proceed with the next action
+                Toast.makeText(this, "Worked", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            }
         }
     }
+
 
     private fun toggleButtonSelection(button: Button) {
         if (!button.isSelected) {
@@ -97,12 +129,14 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
             }
             button.isSelected = true
             selectedButtonCount++
+            updatePrice()
         } else {
             if (selectedButtonCount == 1) {
                 return
             }
             button.isSelected = false
             selectedButtonCount--
+            updatePrice()
         }
 
     }
@@ -122,10 +156,53 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
 
     override fun onDateSelected(date: String) {
         binding.dateTextView.text = date
+        selectedDate = date
+        isDateSelected = true
     }
-
     override fun onPlanSelected(plan: String) {
         binding.planTextView.text = plan
+        selectedPlan = plan
+        updatePrice()
+        isPlanSelected = true
     }
 
+    private fun updatePrice() {
+        val price = calculatePrice(selectedPlan, numberOfPeople,selectedButtonCount)
+        binding.priceTextView.text = price.toString()
+    }
+
+    private fun calculatePrice(plan: String, numberOfPeople: Int, selectedTimes : Int): Double {
+        val basePriceForPlan = when (selectedPackage) {
+            "Homy Plus" -> when (plan) {
+                "Daily" -> 1099.0
+                "Weekly" -> 4616.0
+                "Monthly" -> 9899.0
+                "Half-Yearly" -> 49455.0
+                "Yearly" -> 79129.0
+                else -> 0.0
+            }
+            "Homy Pro" -> when (plan) {
+                "Daily" -> 1999.0
+                "Weekly" -> 8399.0
+                "Monthly" -> 17999.0
+                "Half-Yearly" -> 89999.0
+                "Yearly" -> 143999.0
+                else -> 0.0
+            }
+            else -> when (plan) {
+                "Daily" -> 4999.0
+                "Weekly" -> 20999.0
+                "Monthly" -> 44999.0
+                "Half-Yearly" -> 224999.0
+                "Yearly" -> 359999.0
+                else -> 0.0
+            }
+        }
+
+        val additionalPeopleCharge = if (numberOfPeople > 4) {
+            basePriceForPlan * 0.10 * (numberOfPeople - 4)
+        } else 0.0
+
+        return (basePriceForPlan + additionalPeopleCharge) * selectedTimes
+    }
 }
