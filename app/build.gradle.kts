@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.firebase.config)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -62,4 +63,13 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     implementation ("jp.wasabeef:glide-transformations:4.3.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+
+    // RazarPay
+    implementation (libs.checkout)
+
+    //Retrofit Libraries
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.gson)
+
 }

@@ -1,6 +1,7 @@
 package com.thehomy
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -112,9 +113,11 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
             updatePrice()
         }
         binding.Continue.setOnClickListener {
-            if (isDateSelected && isPlanSelected) {
+            if (isDateSelected) {
                 // Proceed with the next action
-                Toast.makeText(this, "Worked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, PaymentsActivity::class.java)
+                intent.putExtra("Price", binding.priceTextView.text.toString().toDouble().toInt())
+                startActivity(intent)
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
