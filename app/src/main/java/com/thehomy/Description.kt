@@ -65,11 +65,6 @@ class Description : Fragment() {
         )
 
 
-
-
-
-
-
         return binding.root
     }
 }

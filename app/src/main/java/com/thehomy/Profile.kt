@@ -48,8 +48,11 @@ class Profile : Fragment() {
             startActivity(intent)
         }
         binding.Calendar.setOnClickListener {
-            val intent = Intent(requireActivity(),Calendar::class.java)
-            startActivity(intent)
+            Toast.makeText(
+                activity,
+                "This Service is not available right now",
+                Toast.LENGTH_SHORT
+            ).show()
         }
         binding.Share.setOnClickListener {
             val shareIntent = Intent().apply {
