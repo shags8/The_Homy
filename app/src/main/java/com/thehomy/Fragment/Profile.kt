@@ -12,6 +12,9 @@ import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.remoteconfig.remoteConfig
 import com.google.firebase.remoteconfig.remoteConfigSettings
+import com.thehomy.AboutUs
+import com.thehomy.Calendar
+import com.thehomy.HelpCenter
 import com.thehomy.databinding.FragmentProfileBinding
 
 class Profile : Fragment() {
@@ -44,7 +47,7 @@ class Profile : Fragment() {
         remote()
 
         binding.HelpCenter.setOnClickListener {
-            val intent = Intent(requireActivity(),HelpCenter::class.java)
+            val intent = Intent(requireActivity(), HelpCenter::class.java)
             startActivity(intent)
         }
         binding.Calendar.setOnClickListener {
