@@ -22,9 +22,7 @@ class Registration : AppCompatActivity() {
         binding.SignupBtn.setOnClickListener {
             saveUserDataToFirebase()
         }
-
     }
-
 
     private fun saveUserDataToFirebase() {
         if (validateUser()) {
@@ -57,31 +55,31 @@ class Registration : AppCompatActivity() {
             Toast.makeText(this, "Please fill in name", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (userPhoneNumber.isEmpty()){
+        if (userPhoneNumber.isEmpty()) {
             Toast.makeText(this, "Please enter a phone number", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (userEmail.isEmpty()){
+        if (userEmail.isEmpty()) {
             Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (userAddress.isEmpty()){
+        if (userAddress.isEmpty()) {
             Toast.makeText(this, "Please enter a address", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (userCity.isEmpty()){
+        if (userCity.isEmpty()) {
             Toast.makeText(this, "Please enter a City", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (userPincode.isEmpty()){
+        if (userPincode.isEmpty()) {
             Toast.makeText(this, "Please enter a pin code", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (userState.isEmpty()){
+        if (userState.isEmpty()) {
             Toast.makeText(this, "Please enter a state", Toast.LENGTH_SHORT).show()
             return false
         }
-        if (!userAgreement){
+        if (!userAgreement) {
             Toast.makeText(this, "Please agree to the user agreement", Toast.LENGTH_SHORT).show()
             return false
         }
@@ -89,17 +87,14 @@ class Registration : AppCompatActivity() {
             Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show()
             return false
         }
-
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
             Toast.makeText(this, "Please enter a valid email address", Toast.LENGTH_SHORT).show()
             return false
         }
-
         if (!userPincode.matches(Regex("\\d{6}"))) {
             Toast.makeText(this, "Please enter a valid 6-digit pincode", Toast.LENGTH_SHORT).show()
             return false
         }
-
         // All fields are valid
         return true
     }
