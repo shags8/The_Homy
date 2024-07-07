@@ -43,6 +43,7 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
     private fun setupUI(){
         binding.toolbar.textView.setCompoundDrawablesWithIntrinsicBounds(0,0,0,0)
         binding.toolbar.textView.text = "CART"
+        binding.PackageName.text = selectedPackage
         binding.planTextView.text = "Monthly"
         selectedPlan = "Monthly"
 
