@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.googleGmsGoogleServices)
-    id("kotlin-kapt")
+//    id("kotlin-kapt")
 }
 
 android {
@@ -55,7 +55,8 @@ dependencies {
     implementation(libs.firebase.config)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.firebase.auth)
+//    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,11 +67,28 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
 
     // RazarPay
-    implementation (libs.checkout)
+//    implementation (libs.checkout)
+
+    // https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
+
+
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+
+    // https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    implementation("com.razorpay:checkout:1.6.38")
+
+
+    implementation ("com.github.mukeshsolanki.android-otpview-pinview:otpview:3.1.0")
+
+
 
     //Retrofit Libraries
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
-    implementation (libs.gson)
+//    implementation (libs.retrofit)
+//    implementation (libs.converter.gson)
+//    implementation (libs.gson)
 
 }

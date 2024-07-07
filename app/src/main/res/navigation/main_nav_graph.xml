@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.thehomy.Fragment.Profile"
+        android:name="com.thehomy.Profile"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment

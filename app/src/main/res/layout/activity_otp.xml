@@ -8,47 +8,98 @@
     android:background="@color/screen_background"
     tools:context=".Otp">
 
-    <TextView
-        android:id="@+id/verification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/verification"
-        style="@style/Heading_text"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/verification"
-        app:layout_constraintStart_toStartOf="@id/verification"
-        app:layout_constraintEnd_toEndOf="@id/verification"
-        app:layout_constraintTop_toBottomOf="@id/verification"/>
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/please_enter_the_6_digit_code_sent_on"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/poppins_regular"
-        app:layout_constraintStart_toStartOf="@id/image"
-        app:layout_constraintEnd_toEndOf="@id/image"
-        app:layout_constraintTop_toBottomOf="@id/image"/>
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/phone_number"
-        android:fontFamily="@font/poppins_regular"
-        app:layout_constraintStart_toStartOf="@id/text1"
-        app:layout_constraintEnd_toEndOf="@id/text1"
-        app:layout_constraintTop_toBottomOf="@id/text1"/>
+            <TextView
+                android:id="@+id/verification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/verification"
+                style="@style/Heading_text"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/verification"
+                app:layout_constraintStart_toStartOf="@id/verification"
+                app:layout_constraintEnd_toEndOf="@id/verification"
+                app:layout_constraintTop_toBottomOf="@id/verification"/>
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/please_enter_the_6_digit_code_sent_on"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_regular"
+                app:layout_constraintStart_toStartOf="@id/image"
+                app:layout_constraintEnd_toEndOf="@id/image"
+                app:layout_constraintTop_toBottomOf="@id/image"/>
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"
+                android:fontFamily="@font/poppins_regular"
+                app:layout_constraintStart_toStartOf="@id/text1"
+                app:layout_constraintEnd_toEndOf="@id/text1"
+                app:layout_constraintTop_toBottomOf="@id/text1"/>
+
+            <com.mukeshsolanki.OtpView
+                android:id="@+id/otpView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="70dp"
+                android:inputType="number"
+                android:itemBackground="@color/white"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                app:OtpHideLineWhenFilled="true"
+                app:OtpItemCount="6"
+                app:OtpItemSpacing="6dp"
+                app:OtpLineColor="@color/black"
+                app:OtpState_filled="true"
+                app:OtpViewType="rectangle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text2" />
 
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="30dp"
+                android:layout_marginHorizontal="40dp"
+                android:background="@drawable/btn_bg"
+                android:text="SUBMIT"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="@font/poppins_bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/otpView" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

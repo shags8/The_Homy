@@ -11,10 +11,10 @@
         android:title="Receipe" />
     <item
         android:id="@+id/recentFragment"
-        android:icon="@drawable/home"
+        android:icon="@drawable/recent"
         android:title="Recent Plan" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/home"
+        android:icon="@drawable/profile"
         android:title="Profile" />
 </menu>
