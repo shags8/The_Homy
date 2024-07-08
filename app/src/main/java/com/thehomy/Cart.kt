@@ -89,10 +89,10 @@ class Cart : AppCompatActivity() , DatePickerBottomSheetFragment.DateSelectedLis
             }
 
         }
-        binding.dateSelector.setOnClickListener{
+        binding.card2.setOnClickListener{
             showDatePickerBottomSheet()
         }
-        binding.planSelector.setOnClickListener {
+        binding.card3.setOnClickListener {
             showPlanPickerBottomSheet()
         }
         binding.increase.setOnClickListener {

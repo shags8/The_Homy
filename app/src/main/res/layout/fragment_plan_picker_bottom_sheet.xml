@@ -34,35 +34,35 @@
             android:id="@+id/plan1"
             style="@style/radio_btn2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:text="@string/daily" />
 
         <RadioButton
             android:id="@+id/plan2"
             style="@style/radio_btn2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:text="@string/weekly" />
 
         <RadioButton
             android:id="@+id/plan3"
             style="@style/radio_btn2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:text="@string/monthly" />
 
         <RadioButton
             android:id="@+id/plan4"
             style="@style/radio_btn2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:text="@string/half_yearly" />
 
         <RadioButton
             android:id="@+id/plan5"
             style="@style/radio_btn2"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:text="@string/yearly" />
 
 
